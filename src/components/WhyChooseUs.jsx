@@ -1,29 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
+import { features } from '@/utils/data';
 
 const WhyChooseUs = () => {
-    const features = [
-        {
-            icon: '🎫',
-            title: 'Easy Registration',
-            description: 'Book tickets and register for events in just a few clicks'
-        },
-        {
-            icon: '🔒',
-            title: 'Secure Payments',
-            description: 'Multiple payment options with bank-grade security'
-        },
-        {
-            icon: '✅',
-            title: 'Verified Organizers',
-            description: 'All event organizers are verified for your safety'
-        },
-        {
-            icon: '⭐',
-            title: 'Quality Events',
-            description: 'Curated selection of the best events in your city'
-        }
-    ];
 
     return (
         <section className="relative w-full py-20 px-4 overflow-hidden">

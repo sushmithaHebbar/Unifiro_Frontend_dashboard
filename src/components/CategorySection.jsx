@@ -1,5 +1,6 @@
 'use client';
 import React, { useEffect, useRef } from 'react';
+import { categories } from '@/utils/data';
 
 const CategorySection = () => {
     const sectionRef = useRef(null);
@@ -28,33 +29,7 @@ const CategorySection = () => {
         return () => observer.disconnect();
     }, []);
 
-    const categories = [
-        {
-            icon: '🎆',
-            title: 'Celebrations & Festivals',
-            description: 'Diwali, Holi, cultural events & more'
-        },
-        {
-            icon: '⚛️',
-            title: 'Sports & Leagues',
-            description: 'Cricket, football, marathons & more'
-        },
-        {
-            icon: '🎵',
-            title: 'DJ Nights & Music',
-            description: 'EDM, concerts, live performances'
-        },
-        {
-            icon: '🏛️',
-            title: 'Public & Cultural',
-            description: 'Community gatherings & exhibitions'
-        },
-        {
-            icon: '⚛️',
-            title: 'Corporate Events',
-            description: 'Conferences, summits & networking'
-        }
-    ];
+ 
 
     return (
         <section ref={sectionRef} className="w-full py-16 md:py-20 px-4 bg-white">
@@ -72,9 +47,11 @@ const CategorySection = () => {
                     {categories.slice(0, 4).map((category, index) => (
                         <div
                             key={index}
-                            className="category-card scroll-reveal flex items-start gap-4 md:gap-6 p-6 md:p-8 border border-gray-300 rounded-2xl hover:border-[#20B3BC] hover:shadow-lg transition-all cursor-pointer"
+                            className="category-card scroll-reveal flex items-center gap-4 md:gap-6 p-6 md:p-8 border border-gray-300 rounded-2xl hover:border-[#20B3BC] hover:shadow-lg transition-all cursor-pointer"
                         >
-                            <div className="text-4xl md:text-5xl flex-shrink-0">{category.icon}</div>
+                            <div>
+                                <p className='text-center text-6xl font-light'>{category.icon}</p>
+                            </div>
                             <div>
                                 <h3 className="text-lg md:text-xl font-bold text-black mb-1 md:mb-2">{category.title}</h3>
                                 <p className="text-sm md:text-base text-gray-600">{category.description}</p>
@@ -85,8 +62,8 @@ const CategorySection = () => {
 
                 {/* Centered Last Card */}
                 <div className="flex justify-center">
-                    <div className="category-card scroll-reveal flex items-start gap-4 md:gap-6 p-6 md:p-8 border border-gray-300 rounded-2xl hover:border-[#20B3BC] hover:shadow-lg transition-all cursor-pointer w-full md:w-1/2">
-                        <div className="text-4xl md:text-5xl flex-shrink-0">{categories[4].icon}</div>
+                    <div className="category-card scroll-reveal flex items-center gap-4 md:gap-6 p-6 md:p-8 border border-gray-300 rounded-2xl hover:border-[#20B3BC] hover:shadow-lg transition-all cursor-pointer w-full md:w-1/2">
+                        <div className="text-4xl md:text-5xl shrink-0">{categories[4].icon}</div>
                         <div>
                             <h3 className="text-lg md:text-xl font-bold text-black mb-1 md:mb-2">{categories[4].title}</h3>
                             <p className="text-sm md:text-base text-gray-600">{categories[4].description}</p>

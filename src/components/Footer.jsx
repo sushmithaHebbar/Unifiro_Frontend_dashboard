@@ -3,6 +3,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const Footer = () => {
+
+    let date = new  Date();
+    let year = date.getFullYear();
+
     return (
         <footer className="relative w-full overflow-hidden">
             {/* Green Gradient Section with Links */}
@@ -111,7 +115,7 @@ const Footer = () => {
                 <div className="relative z-10 max-w-7xl mx-auto px-6 py-8">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                         <p className="text-gray-800 text-sm font-medium">
-                            © 2025 Ayojan. All rights reserved.
+                            © {year} Unifiro. All rights reserved.
                         </p>
                         <p className="text-gray-800 text-sm font-medium">
                             Designed and Built by BrandAndBrandz

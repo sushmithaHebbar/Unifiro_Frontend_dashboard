@@ -8,16 +8,16 @@ const Navbar = () => {
 
     return (
         <div className="w-full border-b-2 border-[#FE9A0D]/40 bg-white/95 backdrop-blur-md sticky top-0 z-50 shadow-sm">
-            <nav className="flex items-center justify-between px-6 md:px-12 py-5 max-w-7xl mx-auto w-full">
+            <nav className="flex items-center justify-between px-6 md:px-12 py-3 max-w-7xl mx-auto w-full">
                 {/* Logo */}
-                <div className="flex-shrink-0">
+                <div className="shrink-0">
                     <Link href="/" className="block hover:opacity-80 transition-opacity">
                         <Image
-                            src="/Logo.webp"
+                            src="/Logo.png"
                             alt="Unifiro Logo"
-                            width={140}
-                            height={45}
-                            className="h-auto w-auto object-contain"
+                            width={40}
+                            height={20}
+                            className="w-20 h-12 lg:h-20 lg:w-40 object-contain"
                             priority
                         />
                     </Link>
@@ -26,25 +26,25 @@ const Navbar = () => {
                 {/* Desktop Navigation */}
                 <div className="hidden md:flex items-center space-x-10">
                     <Link
-                        href="#"
+                        href="/discover"
                         className="relative text-gray-800 hover:text-[#20B3BC] transition-colors font-semibold text-base group"
                     >
                         Discover Events
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#20B3BC] to-[#13C998] group-hover:w-full transition-all duration-300"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-linear-to-r from-[#20B3BC] to-[#13C998] group-hover:w-full transition-all duration-300"></span>
                     </Link>
                     <Link
                         href="#"
                         className="relative text-gray-800 hover:text-[#20B3BC] transition-colors font-semibold text-base group"
                     >
                         Host an Event
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#20B3BC] to-[#13C998] group-hover:w-full transition-all duration-300"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-linear-to-r from-[#20B3BC] to-[#13C998] group-hover:w-full transition-all duration-300"></span>
                     </Link>
                     <Link
                         href="#"
                         className="relative text-gray-800 hover:text-[#20B3BC] transition-colors font-semibold text-base group"
                     >
                         About
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#20B3BC] to-[#13C998] group-hover:w-full transition-all duration-300"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-linear-to-r from-[#20B3BC] to-[#13C998] group-hover:w-full transition-all duration-300"></span>
                     </Link>
                     <Link
                         href="#"
@@ -90,7 +90,7 @@ const Navbar = () => {
                 <div className="md:hidden border-t border-[#FE9A0D]/20 bg-white">
                     <div className="px-6 py-4 space-y-4">
                         <Link
-                            href="#"
+                            href="/discover"
                             className="block text-gray-800 hover:text-[#20B3BC] transition-colors font-semibold text-base py-2"
                         >
                             Discover Events

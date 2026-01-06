@@ -69,8 +69,8 @@ export default function Events() {
                         </span>
                       </p>
                     </div>
-                    {event.uri ? (
-                      <Link href={event.uri}>
+                    {event.slug ? (
+                      <Link href={`/events/${event.slug}`}>
                         <button className="w-full lg:w-auto px-10 py-3 rounded-xl text-lg font-semibold text-white bg-linear-to-r from-teal-400 to-lime-400 hover:opacity-90 transition cursor-pointer">
                           Register
                         </button>

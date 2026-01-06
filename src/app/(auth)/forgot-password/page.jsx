@@ -28,7 +28,7 @@ export default function ForgotPassword() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-teal-200 via-yellow-100 to-orange-200">
-      <Link href="/">
+      <Link href={"/"}>
         <h1 className="text-2xl font-bold text-center mb-2">
           <span className="text-teal-500">uni</span>firo
         </h1>

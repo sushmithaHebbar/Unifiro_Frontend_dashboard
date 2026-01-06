@@ -34,7 +34,7 @@ export default function LoginPage() {
         onSubmit={handleSubmit(onSubmit)}
         className="w-full max-w-md bg-white rounded-2xl p-8 shadow-lg"
       >
-        <Link href="/">
+        <Link href={"/"}>
           <h1 className="text-2xl font-bold text-center mb-2">
             <span className="text-teal-500">uni</span>firo
           </h1>

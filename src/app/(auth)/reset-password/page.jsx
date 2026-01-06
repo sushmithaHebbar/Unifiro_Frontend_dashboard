@@ -6,7 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { api } from "@/utils/api";
 import { Eye, EyeClosed } from "lucide-react";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import Link from "next/link";
 
 const schema = yup.object({
@@ -19,7 +19,7 @@ const schema = yup.object({
     .required(),
 });
 
-export default function ResetPassword() {
+function ResetPasswordForm() {
   const params = useSearchParams();
   const token = params.get("token");
   const [showPassword, setShowPassword] = useState(false);
@@ -44,11 +44,11 @@ export default function ResetPassword() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-teal-200 via-yellow-100 to-orange-200">
-       <Link href="/">
-          <h1 className="text-2xl font-bold text-center mb-2">
-            <span className="text-teal-500">uni</span>firo
-          </h1>
-        </Link>
+      <Link href={"/"}>
+        <h1 className="text-2xl font-bold text-center mb-2">
+          <span className="text-teal-500">uni</span>firo
+        </h1>
+      </Link>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md"
@@ -77,6 +77,18 @@ export default function ResetPassword() {
         </button>
       </form>
     </div>
+  );
+}
+
+export default function ResetPassword() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-teal-200 via-yellow-100 to-orange-200">
+        <div className="text-teal-600">Loading...</div>
+      </div>
+    }>
+      <ResetPasswordForm />
+    </Suspense>
   );
 }
 

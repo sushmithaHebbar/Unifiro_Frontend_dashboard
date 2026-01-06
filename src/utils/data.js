@@ -102,7 +102,8 @@ export const events = [
     location: "Tannirbhavi Beach, Mangaluru",
     attendees: "1250 people",
     price: "0",
-    uri: "/emergesharktank"
+    uri: "/emergesharktank",
+    slug: "emerge-shark-tank"
   },
   {
     id: 2,

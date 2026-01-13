@@ -140,3 +140,26 @@ body {
     font-size: 14px;
   }
 }
+
+.Toastify__toast.unifiro-toast {
+  border-radius: 12px !important;
+  font-weight: 500 !important;
+  background: linear-gradient(
+    135deg,
+    #22c5c0,
+    #149543
+  ) !important;
+  color: #000 !important;
+}
+
+.Toastify__toast--success.unifiro-toast {
+  background: linear-gradient(
+    135deg,
+    #22c5c0,
+    #149543
+  ) !important;
+}
+
+.Toastify__progress-bar.unifiro-toast-progress {
+  background: rgba(255, 255, 255, 0.7) !important;
+}

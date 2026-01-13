@@ -42,7 +42,7 @@ export const upcomingEvents = [
     url: "https://mangalurubeachfestival.in/",
   },
   {
-    image: "/upcoming/Emerge Festival.webp",
+    image: "/upcoming/EmergeFestival.webp",
     title: "Emerge Startup Festival 2026",
     description:
       "India's first beachside startup festival connecting entrepreneurs, investors, and industry leaders in Mangaluru.",

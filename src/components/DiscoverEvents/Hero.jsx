@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Emerge2026Hero() {
   return (
@@ -45,9 +46,12 @@ export default function Emerge2026Hero() {
       <div className="relative z-10 container mx-auto px-6 py-12">
         <div className="grid lg:grid-cols-2 gap-8 items-center">
           <div className="">
-            <img
+            <Image
               src="/emerge.webp"
               alt="EMERGE 2026 - Collaborative discussion"
+              width={600}
+              height={600}
+              className="object-cover"
             />
           </div>
 

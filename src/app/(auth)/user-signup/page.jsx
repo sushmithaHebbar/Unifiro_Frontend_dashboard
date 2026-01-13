@@ -7,9 +7,12 @@ import { userSignupSchema } from "@/validations/userValidation";
 import { Eye, EyeClosed } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 export default function SignupPage() {
   const [isVisible, setIsVisible] = useState(false);
+  const router = useRouter()
 
   const {
     register,
@@ -22,14 +25,16 @@ export default function SignupPage() {
   const onSubmit = async (data) => {
     try {
       await api.post("/users/signup", data);
-      alert("Account created successfully");
+      toast.success("Account created successfully!", {
+        onClose: () => router.push(`/verify-otp?email=${data.email}`),
+      });
     } catch (err) {
-      alert(err.response?.data?.message || "Something went wrong");
+      toast.error(err.response?.data?.message)
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-teal-200 via-yellow-100 to-orange-200">
+    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-teal-200 via-yellow-100 to-orange-200">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="w-full max-w-md bg-white rounded-2xl p-8 shadow-lg"
@@ -40,7 +45,7 @@ export default function SignupPage() {
           </h1>
         </Link>
         
-        <p className="text-center text-[#20B3BC] text-xl font-semibold mb-6">
+        <p className="text-center text-brand-teal text-xl font-semibold mb-6">
           Create Your Account
         </p>
         <p className="text-center text-black mb-6">

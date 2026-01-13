@@ -5,6 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { api } from "@/utils/api";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 const schema = yup.object({
   email: yup.string().email().required("Email required"),
@@ -20,9 +21,9 @@ export default function ForgotPassword() {
   const onSubmit = async (data) => {
     try {
       await api.post("/users/forgot-password", data);
-      alert("If account exists, reset link sent");
-    } catch {
-      alert("Something went wrong");
+      toast.success("Email sent successfully")
+    } catch (error){
+      toast.error(error.response?.data?.message)
     }
   };
 

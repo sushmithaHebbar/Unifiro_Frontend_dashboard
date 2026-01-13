@@ -7,9 +7,12 @@ import { Eye, EyeClosed } from "lucide-react";
 import { userLoginSchema } from "@/validations/userValidation";
 import { api } from "@/utils/api";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter()
 
   const {
     register,
@@ -22,9 +25,11 @@ export default function LoginPage() {
   const onSubmit = async (data) => {
     try {
       await api.post("/users/login", data);
-      alert("Login successful");
+      toast.success("Login successful!",{
+        onClose: () => router.push("/discover")
+      })
     } catch (err) {
-      alert(err.response?.data?.message || "Login failed");
+      alert(err.response?.data?.message);
     }
   };
 

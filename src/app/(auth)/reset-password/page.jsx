@@ -8,13 +8,15 @@ import { api } from "@/utils/api";
 import { Eye, EyeClosed } from "lucide-react";
 import { useState, Suspense } from "react";
 import Link from "next/link";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const schema = yup.object({
   password: yup
     .string()
     .matches(
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,10}$/,
-      "Weak password"
+      "Password must be 6-10 chars with uppercase, lowercase, number & special character"
     )
     .required(),
 });
@@ -23,6 +25,7 @@ function ResetPasswordForm() {
   const params = useSearchParams();
   const token = params.get("token");
   const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter()
 
   const {
     register,
@@ -36,9 +39,11 @@ function ResetPasswordForm() {
         token,
         password: data.password,
       });
-      alert("Password updated successfully");
-    } catch {
-      alert("Invalid or expired link");
+      toast.success("Password changed successfully!", {
+        onClose: () => router.push("/user-login")
+      })
+    } catch (error) {
+      console.log(error.response?.data?.message)
     }
   };
 

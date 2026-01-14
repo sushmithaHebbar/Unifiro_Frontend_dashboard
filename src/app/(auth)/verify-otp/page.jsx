@@ -1,11 +1,11 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, Suspense } from "react";
 import { api } from "@/utils/api";
 import { useSearchParams, useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 
-export default function VerifyOtpPage() {
+function Page() {
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
   const inputsRef = useRef([]);
   const router = useRouter();
@@ -115,4 +115,12 @@ export default function VerifyOtpPage() {
       </div>
     </div>
   );
+}
+
+export default function VerifyOtpPage() {
+  return (
+    <Suspense>
+      <Page />
+    </Suspense>
+  )
 }

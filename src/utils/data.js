@@ -96,7 +96,7 @@ export const events = [
     title: "The EMERGE Silicon Beach - SHARK TANK ",
     description:
       "Dive into the thrill of EMERGE 2026 – where startups ignite, investors strike, and innovation takes center stage at Mangaluru’s iconic beach festival!",
-    img: "/emergeSharkTank.webp",
+    img: "/image1.png",
     calendar: "11th January 2026 ",
     time: "9:00 AM",
     location: "Tannirbhavi Beach, Mangaluru",
@@ -107,7 +107,7 @@ export const events = [
   },
   {
     id: 2,
-    img: "/upcoming/MangaloreBeachFestival.webp",
+    img: "/image3.png",
     title: "Mangaluru Beach Festival 2026",
     description:
       "Where culture meets the coast — the Mangaluru Beach Festival brings traditions, entertainment, and innovation together.",

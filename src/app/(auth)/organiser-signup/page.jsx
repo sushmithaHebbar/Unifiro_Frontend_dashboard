@@ -12,11 +12,14 @@ import { api } from "@/utils/api";
 import StepIndicator from "@/components/StepIndicator";
 import Link from "next/link";
 import { Eye, EyeClosed } from "lucide-react";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 export default function OrganizerSignup() {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({});
   const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter()
 
   const schema =
     step === 1 ? step1Schema : step === 2 ? step2Schema : step3Schema;
@@ -28,16 +31,19 @@ export default function OrganizerSignup() {
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmit = async (data) => {
-    const mergedData = { ...formData, ...data };
-    setFormData(mergedData);
+    try {
+      const mergedData = { ...formData, ...data };
+      setFormData(mergedData);
 
-    if (step < 3) return setStep(step + 1);
+      if (step < 3) return setStep(step + 1);
 
-    await api.post("/organizers/signup", mergedData, {
-      withCredentials: true,
-    });
-
-    alert("Organizer application submitted");
+      await api.post("/organizer/signup", mergedData);
+      toast.success("Account registered successfully!", {
+        onClose: router.push("/organiser-login")
+      })
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Something went wrong");
+    }
   };
 
   return (
@@ -141,7 +147,11 @@ export default function OrganizerSignup() {
 
         <div className="flex justify-between mt-6">
           {step > 1 && (
-            <button type="button" onClick={() => setStep(step - 1)} className="border-2 text-[#20B3BC] px-6 cursor-pointer py-2 rounded-lg">
+            <button
+              type="button"
+              onClick={() => setStep(step - 1)}
+              className="border-2 text-[#20B3BC] px-6 cursor-pointer py-2 rounded-lg"
+            >
               Back
             </button>
           )}
